@@ -15,7 +15,7 @@ const IconBar = () => {
   ];
 
   return (
-    <div className='inline-flex gap-2'>
+    <div className='inline-flex gap-3'>
       {icons.map((icon, index) => (
         <Icon key={index} link={icon.link} logo={icon.icon} />
       ))}
