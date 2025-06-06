@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from './Icon'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { IoIosPaper } from 'react-icons/io'
 
 const IconBar = () => {
   const icons = [
@@ -12,6 +13,10 @@ const IconBar = () => {
       'icon': FaLinkedin,
       'link': 'https://www.linkedin.com/in/stanleypangg/'
     },
+    {
+      'icon': IoIosPaper,
+      'link': 
+    }
   ];
 
   return (
