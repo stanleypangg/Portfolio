@@ -15,8 +15,8 @@ const IconBar = () => {
     },
     {
       'icon': IoIosPaper,
-      'link': 
-    }
+      'link': ''
+    },
   ];
 
   return (
