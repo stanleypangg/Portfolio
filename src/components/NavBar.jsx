@@ -3,22 +3,32 @@ import React from 'react'
 const NavBar = () => {
   const items = [
     {
-      'name': 'Home',
-      'href': ''
-    },
-    {
       'name': 'About',
-      'href': ''
+      'sectionId': 'about'
     },
     {
       'name': 'Projects',
-      'href': ''
+      'sectionId': 'projects'
     },
     {
       'name': 'Experience',
-      'href': ''
+      'sectionId': 'experience'
+    },
+    {
+      'name': 'Contact',
+      'sectionId': 'contact'
     },
   ]
+
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
 
   return (
     <ul className='
@@ -26,11 +36,12 @@ const NavBar = () => {
       inline-flex gap-5 
       bg-neutral-100 sticky mb-7
       text-base
+      rounded-md
     '>
       {items.map((item, index) => (
         <li key={index}>
-         <a 
-          href={item.href}
+         <button
+          onClick={() => scrollToSection(item.sectionId)}
           className='
             relative text-blac cursor-pointer 
             transition-all ease-in-out before:transition-[width] before:ease-in-out 
@@ -39,7 +50,9 @@ const NavBar = () => {
             after:transition-[width] after:ease-in-out after:duration-700 after:absolute 
           after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] 
             after:bottom-0 after:right-[50%]
-         '>{item.name}</a>
+         '>
+          {item.name}
+         </button>
         </li>
       ))}
     </ul>

@@ -4,6 +4,9 @@ import HeroSection from '../components/HeroSection'
 import IconBar from '../components/IconBar'
 import Footer from '../components/Footer'
 import About from './About'
+import Project from './Project'
+import Experience from './Experience'
+import Contact from './Contact'
 
 const Home = () => {
   const scrollToNext = () => {
@@ -34,9 +37,15 @@ const Home = () => {
           max-w-2xl md:max-w-4xl
           mx-4
           text-center
-        '>
-          <NavBar />
-          <HeroSection />
+          animate-float
+          shadow-2xl'
+        >
+          <div>
+            <NavBar />
+          </div>
+          <div>
+            <HeroSection />
+          </div>
           <div className='mt-6'>
             <IconBar />
           </div>
@@ -45,8 +54,11 @@ const Home = () => {
         {/* Clickable scroll arrow */}
         <button 
           onClick={scrollToNext}
-          className='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:scale-110 transition-transform duration-200 cursor-pointer group'
-        >
+          className='
+            absolute bottom-8 left-1/2 transform -translate-x-1/2 
+            animate-bounce hover:scale-110 transition-transform duration-200 
+            cursor-pointer group
+        '>
           <div className='flex flex-col items-center text-white'>
             <div className='w-8 h-8 border-r-2 border-b-2 border-white transform rotate-45 group-hover:border-gray-200'></div>
           </div>
@@ -54,7 +66,24 @@ const Home = () => {
       </div>
 
       {/* About */}
-      <About />
+      <div id='about'>
+        <About />
+      </div>
+
+      {/* Projects */}
+      <div id='projects'>
+        <Project />
+      </div>
+
+      {/* Experience */}
+      <div id='experience'>
+        <Experience />
+      </div>
+
+      {/* Contact */}
+      <div id='contact'>
+        <Contact />
+      </div>
 
       {/* Footer */}
       <Footer />

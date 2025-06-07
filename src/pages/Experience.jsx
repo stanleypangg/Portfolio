@@ -2,7 +2,9 @@ import React from 'react'
 
 const Experience = () => {
   return (
-    <div>Experience</div>
+    <section className='w-full bg-black text-white'>
+      <h1>My Experience</h1>
+    </section>
   )
 }
 

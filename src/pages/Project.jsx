@@ -2,17 +2,17 @@ import React from 'react'
 
 const Project = () => {
   return (
-    <div 
-      className='h-screen w-screen relative overflow-hidden' 
-      style={{ 
-        backgroundImage: "url('/projects.gif')",
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
-      }}
+    <section 
+      className='w-full relative overflow-hidden bg-white text-black' 
+      // style={{ 
+      //   backgroundImage: "url('/projects.gif')",
+      //   backgroundSize: 'cover',
+      //   backgroundRepeat: 'no-repeat',
+      //   backgroundPosition: 'center'
+      // }}
     >
-
-    </div>
+      <h1 className='text-center text-4xl'>My Projects</h1>
+    </section>
   )
 }
 
