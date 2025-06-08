@@ -9,7 +9,7 @@ const About = () => {
       <div className='flex max-w-3xl mx-auto justify-between '>
         <div>
           <h1 className='font-bold text-4xl mb-4'>hello, i'm Stanley</h1>
-          <IconBar />
+          <IconBar size='8' />
           <div className='flex flex-row mt-2 gap-2'>
             <Chip>💻 Software Engineer</Chip>
             <Chip>📍 Toronto, ON</Chip>
@@ -31,17 +31,20 @@ const About = () => {
         </div>
       </div>
       <div className='leading-relaxed text-left max-w-3xl mx-auto'>
-        <h2 className='text-3xl font-bold mb-4'>About</h2>
-        <p className='text-gray-300'>
-          Hi, I'm Stanley! I'm a curious student at the <a href='https://www.linkedin.com/school/university-of-toronto/posts/?feedView=all' className='underline text-white'>
-          University of Toronto</a>, and I'm fascinated by the power of technology to make a difference in the world. From coding 
-          and web development to the exciting possibilities of machine learning and AI, I'm always eager to learn and build new things.
-          This portfolio is a glimpse into my projects and my journey as a developer. I'm always open to connecting
-          with other tech enthusiasts, so feel free to reach out!
-        </p>
-      </div>
-      <div>
-        <TechStack></TechStack>
+        <div className='mb-6'>
+          <h2 className='text-3xl font-bold mb-4'>About</h2>
+          <p className='text-gray-300'>
+            Hi, I'm Stanley! I'm a curious student at the <a href='https://www.linkedin.com/school/university-of-toronto/posts/?feedView=all' className='underline text-white'>
+            University of Toronto</a>, and I'm fascinated by the power of technology to make a difference in the world. From coding 
+            and web development to the exciting possibilities of machine learning and AI, I'm always eager to learn and build new things.
+            This portfolio is a glimpse into my projects and my journey as a developer. I'm always open to connecting
+            with other tech enthusiasts, so feel free to reach out!
+          </p>
+        </div>
+        <div>
+          <h2 className='text-3xl font-bold mb-4'>Technologies I love!</h2>
+          <TechStack />
+        </div>
       </div>
     </section>
   )

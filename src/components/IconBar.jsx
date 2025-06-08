@@ -3,7 +3,7 @@ import Icon from './Icon'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoIosPaper } from 'react-icons/io'
 
-const IconBar = () => {
+const IconBar = ({ size }) => {
   const icons = [
     {
       'icon': FaGithub,
@@ -22,7 +22,7 @@ const IconBar = () => {
   return (
     <div className='inline-flex gap-3'>
       {icons.map((icon, index) => (
-        <Icon key={index} link={icon.link} logo={icon.icon} />
+        <Icon size={size} key={index} link={icon.link} logo={icon.icon} />
       ))}
     </div>
   )

@@ -3,13 +3,13 @@ import {
   FaPython, 
   FaJs, 
   FaHtml5, 
-  FaCss3Alt, 
+  FaCss3Alt,
   FaReact, 
   FaNodeJs, 
   FaAws, 
   FaDocker, 
   FaGitAlt,
-  FaLinux 
+  FaJava
 } from 'react-icons/fa'
 import { 
   SiTypescript, 
@@ -21,72 +21,76 @@ import {
   SiPostgresql, 
   SiKubernetes, 
   SiTensorflow, 
-  SiPytorch, 
   SiJupyter,
   SiLatex,
-  SiGnubash
+  SiGnubash,
+  SiSpring,
+  SiFastapi,
+  SiFlask,
+  SiMysql,
+  SiNeo4J,
+  SiRedis,
+  SiPrisma,
+  SiScikitlearn,
+  SiPandas,
+  SiNumpy,
+  SiHuggingface,
+  SiPlotly,
+  SiR
 } from 'react-icons/si'
+import TechRow from './TechRow'
 
 const TechStack = () => {
   const techCategories = [
     {
-      title: "languages",
-      icon: "💻",
       technologies: [
-        { name: "Python", icon: <FaPython />, color: "text-yellow-500" },
-        { name: "JavaScript", icon: <FaJs />, color: "text-yellow-400" },
-        { name: "TypeScript", icon: <SiTypescript />, color: "text-blue-500" },
-        { name: "HTML5", icon: <FaHtml5 />, color: "text-orange-500" },
-        { name: "CSS3", icon: <FaCss3Alt />, color: "text-blue-400" },
-        { name: "C/C++", icon: <SiCplusplus />, color: "text-blue-600" },
-        { name: "Bash", icon: <SiGnubash />, color: "text-gray-600" },
-        { name: "LaTeX", icon: <SiLatex />, color: "text-gray-700" },
+        { name: "Python", icon: FaPython, color: "text-yellow-500" },
+        { name: "JavaScript", icon: FaJs, color: "text-yellow-400" },
+        { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+        { name: "Java", icon: FaJava, color: "text-red-500" },
+        { name: "C/C++", icon: SiCplusplus, color: "text-blue-600" },
+        { name: "SQL", icon: SiMysql, color: "text-blue-500" },
+        { name: "R", icon: SiR, color: "text-blue-600" },
+        { name: "Bash", icon: SiGnubash, color: "text-gray-600" },
+        { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
+        { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
       ]
     },
     {
-      title: "frontend",
-      icon: "🎨",
       technologies: [
-        { name: "React", icon: <FaReact />, color: "text-cyan-400" },
-        { name: "Next.js", icon: <SiNextdotjs />, color: "text-gray-800" },
-        { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "text-teal-500" },
+        { name: "React", icon: FaReact, color: "text-cyan-400" },
+        { name: "Next.js", icon: SiNextdotjs, color: "text-gray-800" },
+        { name: "Express.js", icon: SiExpress, color: "text-gray-600" },
+        { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+        { name: "Flask", icon: SiFlask, color: "text-gray-700" },
+        { name: "FastAPI", icon: SiFastapi, color: "text-green-600" },
+        { name: "Spring Boot", icon: SiSpring, color: "text-green-600" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-500" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-600" },
+        { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
       ]
     },
     {
-      title: "backend",
-      icon: "⚙️",
       technologies: [
-        { name: "Node.js", icon: <FaNodeJs />, color: "text-green-500" },
-        { name: "Express", icon: <SiExpress />, color: "text-gray-600" },
-        { name: "MongoDB", icon: <SiMongodb />, color: "text-green-600" },
-        { name: "PostgreSQL", icon: <SiPostgresql />, color: "text-blue-600" },
-      ]
-    },
-    {
-      title: "devops",
-      icon: "☁️",
-      technologies: [
-        { name: "AWS", icon: <FaAws />, color: "text-orange-400" },
-        { name: "Docker", icon: <FaDocker />, color: "text-blue-500" },
-        { name: "Kubernetes", icon: <SiKubernetes />, color: "text-blue-600" },
-        { name: "Git", icon: <FaGitAlt />, color: "text-orange-600" },
-        { name: "Linux", icon: <FaLinux />, color: "text-gray-800" },
-      ]
-    },
-    {
-      title: "ai/ml",
-      icon: "🤖",
-      technologies: [
-        { name: "TensorFlow", icon: <SiTensorflow />, color: "text-orange-500" },
-        { name: "PyTorch", icon: <SiPytorch />, color: "text-red-500" },
-        { name: "Jupyter", icon: <SiJupyter />, color: "text-orange-400" },
+        { name: "scikit-learn", icon: SiScikitlearn, color: "text-orange-500" },
+        { name: "pandas", icon: SiPandas, color: "text-blue-600" },
+        { name: "NumPy", icon: SiNumpy, color: "text-blue-500" },
+        { name: "TensorFlow", icon: SiTensorflow, color: "text-orange-500" },
+        { name: "AWS", icon: FaAws, color: "text-orange-400" },
+        { name: "Docker", icon: FaDocker, color: "text-blue-500" },
+        { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-600" },
+        { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
+        { name: "Neo4j", icon: SiNeo4J, color: "text-blue-500" },
+        { name: "Redis", icon: SiRedis, color: "text-red-500" },
       ]
     }
   ]
 
   return (
     <div>
-			
+      {techCategories.map((category, index) => (
+        <TechRow key={index} rowIndex={index} items={category.technologies} />
+      ))}
     </div>
   )
 }

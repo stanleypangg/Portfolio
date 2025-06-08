@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import NavBar from '../components/NavBar'
-import HeroSection from '../components/HeroSection'
 import IconBar from '../components/IconBar'
 import Footer from '../components/Footer'
 import About from './About'
@@ -203,7 +202,7 @@ const Home = () => {
               animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <HeroSection />
+            <h1 className='text-5xl mb-4'>hello, i'm Stanley</h1>
           </div>
           
           <div 
@@ -211,7 +210,7 @@ const Home = () => {
               animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <IconBar />
+            <IconBar size='10' />
           </div>
         </div>
 
