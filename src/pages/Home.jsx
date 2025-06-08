@@ -241,14 +241,14 @@ const Home = () => {
             <About />
           </div>
 
-          {/* Projects */}
-          <div id='projects'>
-            <Project />
-          </div>
-
           {/* Experience */}
           <div id='experience'>
             <Experience />
+          </div>
+
+          {/* Projects */}
+          <div id='projects'>
+            <Project />
           </div>
 
           {/* Contact */}

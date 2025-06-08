@@ -7,12 +7,12 @@ const NavBar = () => {
       'sectionId': 'about'
     },
     {
-      'name': 'Projects',
-      'sectionId': 'projects'
-    },
-    {
       'name': 'Experience',
       'sectionId': 'experience'
+    },
+    {
+      'name': 'Projects',
+      'sectionId': 'projects'
     },
     {
       'name': 'Contact',

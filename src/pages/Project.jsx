@@ -3,7 +3,7 @@ import React from 'react'
 const Project = () => {
   return (
     <section 
-      className='w-full relative overflow-hidden bg-white text-black' 
+      className='w-full relative overflow-hidden bg-black text-white' 
       // style={{ 
       //   backgroundImage: "url('/projects.gif')",
       //   backgroundSize: 'cover',
