@@ -24,8 +24,28 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Prevent horizontal scroll */
+/* Hide scrollbar but allow scrolling */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
+}
+
+/* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE */
+html {
+  -ms-overflow-style: none;
+}
+
+/* Ensure scrolling still works */
+html {
+  overflow-y: auto;
 }

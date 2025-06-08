@@ -1,5 +1,7 @@
 import React from 'react'
 import IconBar from '../components/IconBar'
+import Chip from '../components/InfoChip'
+import TechStack from '../components/TechStack'
 
 const About = () => {
   return (
@@ -8,6 +10,11 @@ const About = () => {
         <div>
           <h1 className='font-bold text-4xl mb-4'>hello, i'm Stanley</h1>
           <IconBar />
+          <div className='flex flex-row mt-2 gap-2'>
+            <Chip>💻 Software Engineer</Chip>
+            <Chip>📍 Toronto, ON</Chip>
+            <Chip>♂️ he/him</Chip>
+          </div>
         </div>
         {/* Profile Picture*/}
         <div className='mb-10'>
@@ -16,7 +23,7 @@ const About = () => {
             alt="Stanley Pang profile picture"
             className='
               rounded-2xl
-              w-24 h-24 md:w-40 md:h-40
+              w-24 h-24 md:w-44 md:h-44
               object-cover flex-shrink-0
               hover:scale-110 transition-transform duration-300
               origin-top-right
@@ -31,8 +38,11 @@ const About = () => {
           and web development to the exciting possibilities of machine learning and AI, I'm always eager to learn and build new things.
           This portfolio is a glimpse into my projects and my journey as a developer. I'm always open to connecting
           with other tech enthusiasts, so feel free to reach out!
-          </p>
-        </div>
+        </p>
+      </div>
+      <div>
+        <TechStack></TechStack>
+      </div>
     </section>
   )
 }
