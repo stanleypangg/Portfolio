@@ -203,6 +203,7 @@ const Home = () => {
             }`}
           >
             <h1 className='text-5xl mb-4'>hello, i'm Stanley</h1>
+            <h2 className='text-2xl mb-4'>3rd Year CS Specialist @ UofT</h2>
           </div>
           
           <div 
