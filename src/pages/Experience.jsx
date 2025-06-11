@@ -10,7 +10,7 @@ const Experience = () => {
       role: 'Software Developer Intern',
       date: 'May 2025 - August 2025',
       description: 'Lorem Ipsum',
-      technologies: ['React', 'Node.js', 'Python', 'PostgreSQL', 'AWS']
+      technologies: ['AWS', 'Python', 'NumPy', 'pandas', 'scikit-learn', 'JavaScript', 'React.js', 'Node.js', 'PostgreSQL']
     },
     {
       imagePath: 'uoftseismicdesignteam_logo.jpg',
@@ -19,7 +19,7 @@ const Experience = () => {
       role: 'Digital Solution Specialist',
       date: 'May 2025 - Present',
       description: 'Lorem Ipsum',
-      technologies: ['React.js', 'Node.js']
+      technologies: ['JavaScript', 'React.js', 'Node.js']
     },
     {
       imagePath: 'knowlecy_logo.jpg',
@@ -28,7 +28,7 @@ const Experience = () => {
       role: 'Software Engineer',
       date: 'January 2025 - April 2025',
       description: 'Lorem Ipsum',
-      technologies: ['React.js', 'Node.js']
+      technologies: ['TypeScript', 'Next.js', 'React.js', 'Node.js', 'Python', 'FastAPI', 'Neo4j']
     },
     {
       imagePath: 'bayes_studio_logo.jpg',
@@ -37,7 +37,7 @@ const Experience = () => {
       role: 'API and Data Integration Intern',
       date: 'October 2024 - December 2024',
       description: 'Lorem Ipsum',
-      technologies: ['React.js', 'Node.js']
+      technologies: ['REST APIs', 'Datasets', 'Excel']
     }
   ]
 
