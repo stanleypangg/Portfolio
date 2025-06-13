@@ -16,7 +16,7 @@ const IconBar = ({ size }) => {
     },
     {
       'icon': FaSquareXTwitter,
-      'link': ''
+      'link': 'https://x.com/StanleyPan35744'
     },
     {
       'icon': IoIosPaper,
