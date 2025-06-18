@@ -198,7 +198,7 @@ const Home = () => {
           </div>
           
           <div 
-            className={`transition-all duration-500 delay-200 ${
+            className={`md:h-25 md:w-100 transition-all duration-500 delay-200 ${
               animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >

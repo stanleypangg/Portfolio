@@ -37,6 +37,8 @@ const NavBar = () => {
       bg-neutral-100 sticky mb-7
       text-base
       rounded-md
+      md:h-12 md:text-lg
+      items-center
     '>
       {items.map((item, index) => (
         <li key={index}>
