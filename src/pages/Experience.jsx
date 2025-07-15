@@ -43,16 +43,6 @@ const Experience = () => {
 
   return (
     <section className='relative w-full overflow-hidden min-h-screen pb-16'>
-      {/* Background with flares */}
-      <div className='absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-800'>
-        {/* Static background flares */}
-        <div className='absolute top-20 left-1/4 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl'></div>
-        <div className='absolute bottom-32 right-1/5 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl'></div>
-        <div className='absolute top-1/2 left-1/6 w-72 h-72 bg-indigo-500/6 rounded-full blur-3xl'></div>
-        <div className='absolute top-10 right-1/3 w-64 h-64 bg-cyan-500/8 rounded-full blur-3xl'></div>
-        <div className='absolute bottom-10 left-1/3 w-56 h-56 bg-violet-500/7 rounded-full blur-3xl'></div>
-      </div>
-      
       {/* Content */}
       <div className='relative z-10 text-white py-10 sm:py-16 md:py-20 px-4'>
         <h1 className='mb-18 text-center text-4xl sm:text-5xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent pb-2'>

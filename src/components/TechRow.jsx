@@ -2,46 +2,58 @@ import TechChip from './TechChip'
 import { useEffect, useRef, useState } from 'react'
 
 const TechRow = ({ items, rowIndex }) => {
-  const scrollRef = useRef(null)
+  const containerRef = useRef(null)
   const animationRef = useRef(null)
-  const [isDragging, setIsDragging] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const [dragStart, setDragStart] = useState({ x: 0, scrollLeft: 0 })
-  const [scrollPosition, setScrollPosition] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, translateX: 0 })
+  const [translateX, setTranslateX] = useState(0)
+  const [itemWidth, setItemWidth] = useState(0)
   
   const isReverse = rowIndex % 2 === 1
-  const speed = 0.5 // pixels per frame for smoother animation
+  const speed = 0.3 // Slower, smoother speed
   
-  const duplicatedItems = [...items, ...items]
+  // Double the items for seamless infinite scroll
+  const doubledItems = [...items, ...items]
 
-  // Auto-scroll animation with smooth frame rate
+  // Calculate the width of one set of items
   useEffect(() => {
-    let lastTime = 0
-    const targetFPS = 60
-    const frameInterval = 1000 / targetFPS
+    if (containerRef.current) {
+      // Calculate the total width of one set of items (including gaps)
+      const totalWidth = containerRef.current.scrollWidth / 2
+      setItemWidth(totalWidth)
+      
+      // Start at different positions for reverse rows to avoid synchronization
+      if (isReverse) {
+        setTranslateX(-totalWidth)
+      }
+    }
+  }, [items, isReverse])
 
-    const animate = (currentTime) => {
-      if (currentTime - lastTime >= frameInterval) {
-        if (!isHovered && !isDragging && scrollRef.current) {
-          const maxScroll = scrollRef.current.scrollWidth / 2
+  // Smooth auto-scroll animation with proper wrapping
+  useEffect(() => {
+    const animate = () => {
+      // Only animate if not hovered and not dragging
+      if (!isHovered && !isDragging && itemWidth > 0) {
+        setTranslateX(prev => {
+          let newTranslateX
           
-          setScrollPosition(prev => {
-            let newPosition
-            if (isReverse) {
-              newPosition = prev - speed
-              if (newPosition <= 0) {
-                return maxScroll
-              }
-            } else {
-              newPosition = prev + speed
-              if (newPosition >= maxScroll) {
-                return 0
-              }
+          if (isReverse) {
+            newTranslateX = prev - speed
+            // When we've scrolled one full set to the left, reset seamlessly
+            if (newTranslateX <= -itemWidth) {
+              return 0
             }
-            return newPosition
-          })
-        }
-        lastTime = currentTime
+          } else {
+            newTranslateX = prev + speed
+            // When we've scrolled one full set to the right, reset seamlessly
+            if (newTranslateX >= 0) {
+              return -itemWidth
+            }
+          }
+          
+          return newTranslateX
+        })
       }
       
       animationRef.current = requestAnimationFrame(animate)
@@ -54,70 +66,47 @@ const TechRow = ({ items, rowIndex }) => {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [isReverse, isHovered, isDragging, speed])
+  }, [isReverse, isHovered, isDragging, itemWidth])
 
-  // Apply scroll position smoothly
-  useEffect(() => {
-    if (scrollRef.current && !isDragging) {
-      scrollRef.current.scrollLeft = scrollPosition
-    }
-  }, [scrollPosition, isDragging])
+  // Smooth hover transitions
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+  }
 
-  // Drag handlers
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
+
+  // Drag functionality with smooth transitions
   const handleMouseDown = (e) => {
     e.preventDefault()
     setIsDragging(true)
     setDragStart({
       x: e.clientX,
-      scrollLeft: scrollRef.current.scrollLeft
+      translateX: translateX
     })
     document.body.style.userSelect = 'none'
     document.body.style.cursor = 'grabbing'
   }
 
   const handleMouseMove = (e) => {
-    if (!isDragging) return
+    if (!isDragging || itemWidth === 0) return
     
     e.preventDefault()
     const deltaX = e.clientX - dragStart.x
-    let newScrollLeft = dragStart.scrollLeft - deltaX
+    const sensitivity = 1.2
+    const newTranslateX = dragStart.translateX + deltaX * sensitivity
     
-    if (scrollRef.current) {
-      const maxScroll = scrollRef.current.scrollWidth / 2
-      
-      // Handle wrapping during drag
-      if (newScrollLeft < 0) {
-        newScrollLeft = maxScroll + newScrollLeft
-        setDragStart({
-          x: dragStart.x,
-          scrollLeft: maxScroll
-        })
-      } else if (newScrollLeft > maxScroll) {
-        newScrollLeft = newScrollLeft - maxScroll
-        setDragStart({
-          x: dragStart.x, 
-          scrollLeft: 0
-        })
-      }
-      
-      scrollRef.current.scrollLeft = newScrollLeft
-      setScrollPosition(newScrollLeft)
-    }
+    setTranslateX(newTranslateX)
   }
 
   const handleMouseUp = () => {
     setIsDragging(false)
     document.body.style.userSelect = ''
     document.body.style.cursor = ''
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-    if (isDragging) {
-      setIsDragging(false)
-      document.body.style.userSelect = ''
-      document.body.style.cursor = ''
-    }
+    
+    // Animation will automatically resume and handle wrapping naturally
+    // No forced normalization to prevent snap-back
   }
 
   // Global mouse events for dragging
@@ -131,56 +120,76 @@ const TechRow = ({ items, rowIndex }) => {
         document.removeEventListener('mouseup', handleMouseUp)
       }
     }
-  }, [isDragging, dragStart])
+  }, [isDragging, dragStart, itemWidth])
 
   return (
-    <div className="relative py-2">
-      {/* Scrolling container */}
+    <div className="relative py-3 overflow-hidden">
+      {/* Main scrolling container */}
       <div 
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide"
+        ref={containerRef}
+        className="flex gap-4 will-change-transform"
         style={{
-          cursor: isDragging ? 'grabbing' : isHovered ? 'grab' : 'default',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          scrollBehavior: 'auto' // Disable smooth scrolling for manual control
+          transform: `translateX(${translateX}px)`,
+          // Only apply transition when not dragging for immediate drag response
+          transition: isDragging ? 'none' : 'transform 0.1s ease-out',
+          cursor: isDragging ? 'grabbing' : isHovered ? 'grab' : 'default'
         }}
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}
       >
-        {duplicatedItems.map((item, index) => (
+        {doubledItems.map((item, index) => (
           <div 
             key={`${item.name}-${index}`} 
-            className="flex-shrink-0 select-none"
-            style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
+            className="flex-shrink-0 select-none transform transition-transform duration-200 ease-out hover:scale-105"
+            style={{ 
+              pointerEvents: isDragging ? 'none' : 'auto'
+            }}
           >
             <TechChip text={item.name} icon={item.icon} color={item.color} />
           </div>
         ))}
       </div>
       
-      {/* Left fade overlay */}
+      {/* Left fade overlay - replicates global background pattern */}
       <div 
-        className="absolute left-0 top-0 bottom-0 w-32 pointer-events-none z-10"
+        className="absolute left-0 top-0 bottom-0 w-16 pointer-events-none z-10 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(to right, rgb(0, 0, 0), transparent)'
+          background: `
+            radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.06) 0%, transparent 40%),
+            radial-gradient(circle at 75% 70%, rgba(147, 51, 234, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 50% 90%, rgba(99, 102, 241, 0.04) 0%, transparent 35%),
+            linear-gradient(to right, 
+              #000000 0%, 
+              rgba(0, 0, 0, 0.98) 25%, 
+              rgba(0, 0, 0, 0.9) 50%, 
+              rgba(0, 0, 0, 0.6) 75%, 
+              transparent 100%
+            )
+          `,
+          opacity: isHovered ? 0.85 : 1
         }}
       />
       
-      {/* Right fade overlay */}
+      {/* Right fade overlay - replicates global background pattern */}
       <div 
-        className="absolute right-0 top-0 bottom-0 w-32 pointer-events-none z-10"
+        className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none z-10 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(to left, rgb(0, 0, 0), transparent)'
+          background: `
+            radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.06) 0%, transparent 40%),
+            radial-gradient(circle at 75% 70%, rgba(147, 51, 234, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 50% 90%, rgba(99, 102, 241, 0.04) 0%, transparent 35%),
+            linear-gradient(to left, 
+              #000000 0%, 
+              rgba(0, 0, 0, 0.98) 25%, 
+              rgba(0, 0, 0, 0.9) 50%, 
+              rgba(0, 0, 0, 0.6) 75%, 
+              transparent 100%
+            )
+          `,
+          opacity: isHovered ? 0.85 : 1
         }}
       />
-      
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </div>
   )
 }

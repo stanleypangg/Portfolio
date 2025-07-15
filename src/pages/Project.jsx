@@ -21,16 +21,8 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative w-full bg-black text-white py-20 sm:py-28 overflow-hidden">
+    <section id="projects" className="relative w-full text-white py-20 sm:py-28 overflow-hidden">
       
-      {/* Background Aurora Effect */}
-      <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/2 w-[200%] h-[200%]">
-        <div className="absolute inset-0">
-          <div className="absolute bg-blue-900/50 rounded-full w-96 h-96 blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 bg-purple-900/50 rounded-full w-96 h-96 blur-3xl animate-pulse animation-delay-3000"></div>
-        </div>
-      </div>
-
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-16">
