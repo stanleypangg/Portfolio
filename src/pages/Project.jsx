@@ -21,7 +21,7 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative w-full text-white py-20 sm:py-28 overflow-hidden">
+    <section id="projects" className="relative w-full text-white py-8 sm:py-12 md:py-16 overflow-hidden">
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">

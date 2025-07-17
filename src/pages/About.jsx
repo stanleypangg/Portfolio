@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section className='relative w-full overflow-hidden min-h-screen'>
       {/* Content */}
-      <div className='relative z-10 text-white p-4 sm:p-8 md:p-16 lg:p-30'>
+      <div className='relative z-10 text-white p-4 sm:p-8 md:px-16 lg:px-30 md:py-8 lg:py-12'>
         {/* Header section - responsive layout */}
         <div className='flex flex-col md:flex-row max-w-3xl mx-auto justify-between items-start md:items-center gap-6 mb-8'>
           <div className='flex-1'>

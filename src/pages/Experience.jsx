@@ -44,7 +44,7 @@ const Experience = () => {
   return (
     <section className='relative w-full overflow-hidden min-h-screen pb-16'>
       {/* Content */}
-      <div className='relative z-10 text-white py-10 sm:py-16 md:py-20 px-4'>
+      <div className='relative z-10 text-white py-6 sm:py-8 md:py-10 px-4'>
         <h1 className='mb-18 text-center text-4xl sm:text-5xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent pb-2'>
           Experience
         </h1>
