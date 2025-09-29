@@ -50,11 +50,8 @@ const About = () => {
             </h2>
             <p className='text-gray-300 text-sm sm:text-base leading-relaxed'>
               Hi, I'm Stanley! I'm a Computer Science student at the <a href='https://www.utoronto.ca/' target="_blank" rel="noopener noreferrer" className='underline text-white hover:text-gray-200 transition-colors'>
-              University of Toronto</a> (St. George Campus). More specifically, I'm a 3rd year Computer Science Specialist, Mathematics Minor, and Statistics Minor. My coursework and projects have sparked
-              a strong interest in software engineering, full-stack development, and AI/ML. Currently, I'm exploring how <a href='https://huggingface.co/' target="_blank" rel="noopener noreferrer" className='underline text-white hover:text-gray-200 transition-colors'>Hugging Face</a> models 
-              can enhance the learning experience in a personal "<a href='https://notebooklm.google/' target="_blank" rel="noopener noreferrer" className='underline text-white hover:text-gray-200 transition-colors'>NotebookLM</a>-inspired" project, 
-              incorporating a sloth study buddy (for encouragement!) and text-to-speech to improve accessibility. I'm also investigating different cloud solutions for deployment and scalability. This portfolio features a 
-              selection of projects that demonstrate my approach to problem-solving and my commitment to creating impactful solutions. I'm always eager to collaborate and learn from others! Feel free to explore my work and
+              University of Toronto</a> (St. George Campus). More specifically, I'm a 4th year Computer Science Specialist, Mathematics Minor, and Statistics Minor. My coursework and projects have sparked
+              a strong interest in software engineering, full-stack development, and AI/ML. Feel free to explore my work and
               connect with me on <a href='https://www.linkedin.com/in/stanleypangg/' target="_blank" rel="noopener noreferrer" className='underline text-white hover:text-gray-200 transition-colors'>LinkedIn</a>!
             </p>
           </div>

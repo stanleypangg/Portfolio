@@ -203,7 +203,7 @@ const Home = () => {
             }`}
           >
             <h1 className='text-5xl mb-4'>hello, i'm Stanley</h1>
-            <h2 className='text-2xl mb-4'>3rd Year CS Specialist @ UofT</h2>
+            <h2 className='text-2xl mb-4'>4th Year CS Specialist @ UofT</h2>
           </div>
           
           <div 
@@ -249,7 +249,7 @@ const Home = () => {
 
           {/* Projects */}
           <div id='projects'>
-            <Project />
+            {/* <Project /> */}
           </div>
 
           {/* Contact */}
