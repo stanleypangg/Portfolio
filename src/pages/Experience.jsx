@@ -38,25 +38,7 @@ const Experience = () => {
     //   date: 'May 2025 - Present',
     //   description: 'Led the development and maintenance of the University of Toronto Seismic Design Team\'s official website, enhancing the team\'s digital presence and improving information accessibility for students and stakeholders. Implemented modern web technologies to create a responsive, user-friendly platform that effectively showcases the team\'s engineering projects, competition achievements, and recruitment initiatives. Collaborated with team leadership to ensure the website accurately represents the organization\'s mission and facilitates seamless communication with the engineering community.',
     //   technologies: ['JavaScript', 'React.js', 'Node.js']
-    // },
-    {
-      imagePath: 'knowlecy_logo.jpg',
-      companyName: 'Knowlecy Technologies Inc.',
-      companyLink: 'https://knowlecy.com/',
-      role: 'Software Engineer',
-      date: 'January 2025 - April 2025',
-      description: 'Research Paper Mindmap Visualizer 🧠',
-      technologies: ['TypeScript', 'Next.js', 'React.js', 'Node.js', 'Python', 'FastAPI', 'Neo4j']
-    },
-    {
-      imagePath: 'bayes_studio_logo.jpg',
-      companyName: 'Bayes Studio',
-      companyLink: 'https://bayesstudio.com/',
-      role: 'API and Data Integration Intern',
-      date: 'October 2024 - December 2024',
-      description: 'Wildfire Prevention APIs and Datasets 📝',
-      technologies: ['REST APIs', 'Datasets', 'Excel']
-    }
+    // }
   ]
 
   return (
