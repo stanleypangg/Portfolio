@@ -7,10 +7,10 @@ const Experience = () => {
       imagePath: 'shopify-logo-svg-vector.svg',
       companyName: 'Shopify',
       companyLink: 'https://shopify.com/',
-      role: 'Incoming Software Engineer Intern',
+      role: 'Software Engineer Intern',
       date: 'January 2026 - April 2026',
-      description: 'Winter 2026 ❄️',
-      technologies: ['Ruby on Rails', 'React.js', 'JavaScript', 'HTML', 'CSS']
+      description: 'Discover and Convert Team',
+      technologies: ['TypeScript', 'React.js', 'Node.js', 'Tailwind CSS', 'React Router']
     },
     {
       imagePath: 'boost-collective.jpg',
